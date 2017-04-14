@@ -56,7 +56,7 @@ export default function htmlToElement(rawHtml, opts, done) {
 
         let linkPressHandler = null;
         if (node.name == 'a' && node.attribs && node.attribs.href) {
-          linkPressHandler = () => opts.linkHandler(entities.decodeHTML(node.attribs.href));
+          linkPressHandler = () => opts.linkHandler(entities.decodeHTML(node.attribs.href),node.attribs.href);
         }
 
         let linebreakBefore = null;
@@ -111,4 +111,3 @@ export default function htmlToElement(rawHtml, opts, done) {
   parser.write(rawHtml);
   parser.done();
 }
-
